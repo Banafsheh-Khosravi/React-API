@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./Dog.css";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      Dogs: []
+    };
+  }
+
+  componentDidMount() {
+    fetch("https://dog.ceo/api/breeds/image/random/21")
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          Dogs: data.message
+        });
+      });
+  }
+
+  render() {
+    const { Dogs } = this.state;
+    return (
+      <div>
+        <h1 style={{ textAlign: "center" }}> Cute & Funny Pictures of Dogs</h1>
+        {Dogs.map(dog => (
+          <img
+            className="container"
+            style={{ width: 200, height: 200 }}
+            src={dog}
+            alt="pic"
+          />
+        ))}
+        ;
+      </div>
+    );
+  }
 }
 
 export default App;
