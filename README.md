@@ -1,7 +1,8 @@
-Contribute
-git clone https://github.com/Banafsheh-Khosravi/React-API.git
-cd React-API
-npm install
+Contribute:
+
+- git clone https://github.com/Banafsheh-Khosravi/React-API.git
+  cd React-API
+  npm install
 
 - We do not require usernames, passwords, access tokens or anything more complicated than sticking a URL in a browser.
 
